@@ -1,5 +1,5 @@
 //
-//  Product.swift
+//  ProductInfo.swift
 //  BarCodeProject
 //
 //  Created by Alexey Minin on 28/11/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Product: Decodable {
+struct ProductInfo: Decodable {
     var images: [String]
     var name: String
     var price: Float

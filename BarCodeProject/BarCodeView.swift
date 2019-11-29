@@ -12,6 +12,7 @@ import AVFoundation
 class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     
     let api = API()
+    let barCodeViewInfo = BarCodeViewInfo()
     
     private var barCodeReader: BarCodeReaderProtocol = BarCodeReader()
 
@@ -29,7 +30,6 @@ override func viewDidLoad() {
     
      navigationController?.navigationBar.barTintColor = .blue
     
-     api.getProductInfo(at: "46141538")
      requestCameraAccess()
      barCodeReader.delegate = self
 
@@ -42,13 +42,31 @@ override func viewDidLoad() {
          barCodeReader.startRecord(in: view)
 }
 
+    func productList(at BarCode: String) {
+        api.getProductInfo(at: BarCode, getInfo: { (productList) in
+            if productList.products.isEmpty {
+                print("empty product list")
+            } else {
+                guard let firstProduct = productList.products.first else { return }
+                DispatchQueue.main.async {
+                    print(firstProduct.price)
+                    print(firstProduct.name)
+                    print(firstProduct.images)
+                    self.barCodeViewInfo.labelNameName.text = firstProduct.name
+                    self.barCodeViewInfo.labelPrice.text = String(firstProduct.price)
+                }
+            }
+        }) { (APIError) in
+            print("error")
+        }
+        
+    }
+    
     func getBarCode(BarCode: String) {
-        let barCodeViewInfo = BarCodeViewInfo()
-        barCodeViewInfo.labelName.text = BarCode
         
         barCodeReader.stopRecord()
+        productList(at: BarCode)
         self.navigationController?.pushViewController(barCodeViewInfo, animated: true)
-        // apiProductList (at: BarCode)
         
     }
     

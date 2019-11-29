@@ -43,8 +43,7 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
             captureSession?.addOutput(captureMetadataOutput)
             
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            captureMetadataOutput.metadataObjectTypes = [.qr,
-                                                         .ean8,
+            captureMetadataOutput.metadataObjectTypes = [.ean8,
                                                          .ean13,
                                                          .pdf417,
                                                          .code128,

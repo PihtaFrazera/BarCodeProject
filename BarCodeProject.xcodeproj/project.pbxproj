@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040E763423915CCA00E67D54 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763323915CCA00E67D54 /* ProductList.swift */; };
 		0499A0B4239008FB0058D239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B3239008FB0058D239 /* AppDelegate.swift */; };
 		0499A0B6239008FB0058D239 /* BarCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B5239008FB0058D239 /* BarCodeReader.swift */; };
 		0499A0BB239008FE0058D239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0499A0BA239008FE0058D239 /* Assets.xcassets */; };
@@ -16,7 +17,7 @@
 		0499A0D6239020B80058D239 /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D5239020B80058D239 /* BarCodeView.swift */; };
 		0499A0D9239023A20058D239 /* BarCodeViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D8239023A20058D239 /* BarCodeViewInfo.swift */; };
 		0499A0DD239034BA0058D239 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0DC239034BA0058D239 /* API.swift */; };
-		0499A0DF23903FC40058D239 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0DE23903FC40058D239 /* Product.swift */; };
+		0499A0DF23903FC40058D239 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0DE23903FC40058D239 /* ProductInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040E763323915CCA00E67D54 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		0499A0B0239008FB0058D239 /* BarCodeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarCodeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0499A0B3239008FB0058D239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0499A0B5239008FB0058D239 /* BarCodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeReader.swift; sourceTree = "<group>"; };
@@ -43,7 +45,7 @@
 		0499A0D5239020B80058D239 /* BarCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
 		0499A0D8239023A20058D239 /* BarCodeViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewInfo.swift; sourceTree = "<group>"; };
 		0499A0DC239034BA0058D239 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		0499A0DE23903FC40058D239 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		0499A0DE23903FC40058D239 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				0499A0DC239034BA0058D239 /* API.swift */,
-				0499A0DE23903FC40058D239 /* Product.swift */,
+				0499A0DE23903FC40058D239 /* ProductInfo.swift */,
+				040E763323915CCA00E67D54 /* ProductList.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -225,12 +228,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0499A0B6239008FB0058D239 /* BarCodeReader.swift in Sources */,
+				040E763423915CCA00E67D54 /* ProductList.swift in Sources */,
 				0499A0D423901BC60058D239 /* Controllers.swift in Sources */,
 				0499A0B4239008FB0058D239 /* AppDelegate.swift in Sources */,
 				0499A0D6239020B80058D239 /* BarCodeView.swift in Sources */,
 				0499A0DD239034BA0058D239 /* API.swift in Sources */,
 				0499A0D9239023A20058D239 /* BarCodeViewInfo.swift in Sources */,
-				0499A0DF23903FC40058D239 /* Product.swift in Sources */,
+				0499A0DF23903FC40058D239 /* ProductInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
