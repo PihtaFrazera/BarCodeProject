@@ -11,6 +11,8 @@ import UIKit
 class BarCodeViewInfo: UIViewController {
 
     var productInfo: ProductInfo!
+    let api = API()
+    
     
     let labelName : UILabel = {
         let labelName = UILabel()
@@ -30,7 +32,7 @@ class BarCodeViewInfo: UIViewController {
         labelPrice.layer.shadowOffset = CGSize(width: -3, height: -4)
         labelPrice.text = "label Price"
         labelPrice.numberOfLines = 3
-        labelPrice.frame = CGRect(x: 0, y: 380, width: 550.0, height: 40.0)
+        labelPrice.frame = CGRect(x: 0, y: 480, width: 550.0, height: 40.0)
         return labelPrice
     }()
     
@@ -41,18 +43,39 @@ class BarCodeViewInfo: UIViewController {
         labelNameName.layer.shadowOffset = CGSize(width: -3, height: -4)
         labelNameName.text = "label name name"
         labelNameName.numberOfLines = 3
-        labelNameName.frame = CGRect(x: 0, y: 280, width: 550.0, height: 40.0)
+        labelNameName.frame = CGRect(x: 0, y: 380, width: 550.0, height: 40.0)
         return labelNameName
     }()
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    let barCodeView : UIImageView = {
+        let barCodeView = UIImageView(frame: CGRect(x: 50, y: 150, width: 250, height: 250))
         
+        return barCodeView
+    }()
+    
+
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+     //   print(productInfo)
         
+        labelNameName.text = productInfo.name
+        labelPrice.text = String(productInfo.price)
+    
         
+        print(productInfo.images.first!)
+        barCodeView.image = UIImage(data: try! Data(contentsOf: URL(string: "https://img.napolke.ru/image/get?uuid=\(productInfo.images.first!)")!))
         view.addSubview(labelName)
         view.addSubview(labelNameName)
         view.addSubview(labelPrice)
+        view.addSubview(barCodeView)
         view.backgroundColor = .white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         
     }
 }

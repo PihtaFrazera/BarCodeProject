@@ -17,6 +17,7 @@ enum APIError: Error {
 class API {
     func getProductInfo(at BarCode: String, getInfo: ((ProductList) -> Void)?, fail: @escaping (APIError?) -> Void?) {
     let url = URL(string: "https://catalog.napolke.ru/search/catalog")!
+   
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
 
@@ -37,23 +38,8 @@ class API {
         } catch {
             fail(.decodingProblem)
         }
-
-//        if let error = error {
-//            print("error \(error)")
-//        } else {
-//            if let response = response as? HTTPURLResponse {
-//                print("statusCode: \(response.statusCode)")
-//            }
-//            let data = data
-//                do {
-//                    let productList: ProductList = try JSONDecoder().decode(ProductList.self, from: data!)
-//                    print("data: \(productList)")
-//                } catch {
-//
-//                }
-//
-//        }
-    }.resume()
+        }.resume()
     }
-    
+
+
 }
