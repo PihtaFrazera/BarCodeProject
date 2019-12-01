@@ -11,7 +11,7 @@ import CoreData
 
 class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
-    let tableView = UITableView(frame: .zero, style: UITableView.Style.grouped)
+    let tableView = UITableView(frame: .zero, style: UITableView.Style.plain)
     let viewTableBarCode = ViewTableBarCode()
     let dataForSwap = DataForSwap()
     let stack = CoreDataStack.shared
@@ -35,6 +35,7 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
             for data in result as! [ModelData] {
               dataForSwap.name.append(data.value(forKey: "name") as! String)
               dataForSwap.price.append(data.value(forKey: "price") as! Float)
+              dataForSwap.images.append(data.value(forKey: "images") as! Data)
             }
 
         } catch {
@@ -47,8 +48,8 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         loafContext()
+        
         updateLayout(with: view.frame.size)
         tableView.register(TableViewCell.self, forCellReuseIdentifier: forCellReuseIdentifier)
         tableView.dataSource = dataForSwap
@@ -89,6 +90,7 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewTableBarCode.labelName.text = dataForSwap.name[indexPath.row]
         viewTableBarCode.labelPrice.text = String("\(dataForSwap.price[indexPath.row])p")
+        viewTableBarCode.barCodeView.image = UIImage(data: dataForSwap.images[indexPath.row])
         self.navigationController?.pushViewController(viewTableBarCode, animated: true)
     }
 }

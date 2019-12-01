@@ -56,6 +56,12 @@ class BarCodeViewInfo: UIViewController {
                 animal.name = self.productInfo.name
                 animal.price = self.productInfo.price
                 
+                    if let url = URL(string: "https://img.napolke.ru/image/get?uuid=\(self.productInfo.images.first!)") {
+                        if let data = try? Data(contentsOf: url) {
+                           animal.images = data
+                        }
+                    }
+                
                 try! context.save()
                 self.state = false
             }

@@ -12,7 +12,7 @@ import CoreData
 @objc(ModelData)
 internal class ModelData: NSManagedObject {
     
-    @NSManaged var image: Data
+    @NSManaged var images: Data
     @NSManaged var name: String
     @NSManaged var price: Float
 }
