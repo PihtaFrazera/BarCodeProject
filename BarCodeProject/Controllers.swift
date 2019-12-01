@@ -20,12 +20,19 @@ class Controllers: UITabBarController {
         //Первый Tab
         let tabOne = BarCodeView()
         tabOne.tabBarItem = UITabBarItem(tabBarSystemItem: .recents, tag: 1)
+        tabOne.title = "Сканер"
         
-        //Первый вью контроллер На нем должна быть камера
+        //Первый навигационный контроллер на нем должна быть камера
         let navViewController = UINavigationController(rootViewController: tabOne)
     
-      
+        let tabTwo = TableBarCodeView()
+        tabTwo.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        tabTwo.title = "Сохраненные продукты"
         
-        self.viewControllers = [navViewController]
+        //Втторой навигационный контроллер на нем должныы быть сохраненные товары
+        let navDataViewController = UINavigationController(rootViewController: tabTwo)
+        
+        
+        self.viewControllers = [navViewController, navDataViewController]
     }
 }
