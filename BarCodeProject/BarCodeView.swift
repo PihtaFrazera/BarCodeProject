@@ -11,10 +11,10 @@ import AVFoundation
 
 class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     
+    
     let api = API()
     
     private var barCodeReader: BarCodeReaderProtocol = BarCodeReader()
-
     
     private func requestCameraAccess() {
         AVCaptureDevice.requestAccess(for: .video) { (access) in
@@ -24,6 +24,8 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
         }
     }
 
+    
+    
 override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -51,9 +53,8 @@ override func viewDidLoad() {
                     print(firstProduct.price)
                     print(firstProduct.name)
                     print(firstProduct.images)
-                    let barCodeViewInfo = BarCodeViewInfo()
-                    barCodeViewInfo.productInfo = firstProduct
-                    self.navigationController?.pushViewController(barCodeViewInfo, animated: true)
+                    self.pushViewController(firstProduct: firstProduct)
+                    
                 }
             }
         }) { (APIError) in
@@ -61,6 +62,15 @@ override func viewDidLoad() {
         }
         
     }
+    
+    func pushViewController(firstProduct: ProductInfo) {
+        let barCodeViewInfo = BarCodeViewInfo()
+        barCodeViewInfo.productInfo = firstProduct
+        self.navigationController?.pushViewController(barCodeViewInfo, animated: true)
+        
+    }
+    
+    
     
     func getBarCode(BarCode: String) {
         barCodeReader.stopRecord()

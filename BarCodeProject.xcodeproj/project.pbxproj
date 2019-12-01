@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		040E763423915CCA00E67D54 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763323915CCA00E67D54 /* ProductList.swift */; };
+		040E763723928C6C00E67D54 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763623928C6C00E67D54 /* TableViewCell.swift */; };
+		040E763923928D1700E67D54 /* TableBarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763823928D1700E67D54 /* TableBarCodeView.swift */; };
+		040E763C2392A74A00E67D54 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 040E763A2392A74A00E67D54 /* CoreDataModel.xcdatamodeld */; };
+		040E763E2392A79300E67D54 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763D2392A79300E67D54 /* ModelData.swift */; };
+		040E7644239400B600E67D54 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E7643239400B600E67D54 /* CoreDataStack.swift */; };
+		040E76462394149800E67D54 /* ViewTableBarCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E76452394149700E67D54 /* ViewTableBarCode.swift */; };
 		0499A0B4239008FB0058D239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B3239008FB0058D239 /* AppDelegate.swift */; };
 		0499A0B6239008FB0058D239 /* BarCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B5239008FB0058D239 /* BarCodeReader.swift */; };
 		0499A0BB239008FE0058D239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0499A0BA239008FE0058D239 /* Assets.xcassets */; };
@@ -32,6 +38,12 @@
 
 /* Begin PBXFileReference section */
 		040E763323915CCA00E67D54 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		040E763623928C6C00E67D54 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		040E763823928D1700E67D54 /* TableBarCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBarCodeView.swift; sourceTree = "<group>"; };
+		040E763B2392A74A00E67D54 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		040E763D2392A79300E67D54 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		040E7643239400B600E67D54 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		040E76452394149700E67D54 /* ViewTableBarCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTableBarCode.swift; sourceTree = "<group>"; };
 		0499A0B0239008FB0058D239 /* BarCodeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarCodeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0499A0B3239008FB0058D239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0499A0B5239008FB0058D239 /* BarCodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeReader.swift; sourceTree = "<group>"; };
@@ -66,6 +78,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040E76352391BB9C00E67D54 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				040E763D2392A79300E67D54 /* ModelData.swift */,
+				040E7643239400B600E67D54 /* CoreDataStack.swift */,
+				040E763A2392A74A00E67D54 /* CoreDataModel.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		0499A0A7239008FB0058D239 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +112,8 @@
 				0499A0B3239008FB0058D239 /* AppDelegate.swift */,
 				0499A0D323901BC60058D239 /* Controllers.swift */,
 				0499A0B5239008FB0058D239 /* BarCodeReader.swift */,
+				040E763623928C6C00E67D54 /* TableViewCell.swift */,
+				040E76352391BB9C00E67D54 /* CoreData */,
 				0499A0DB239034A40058D239 /* Networking */,
 				0499A0D7239020BF0058D239 /* View */,
 				0499A0BA239008FE0058D239 /* Assets.xcassets */,
@@ -113,6 +137,8 @@
 			children = (
 				0499A0D5239020B80058D239 /* BarCodeView.swift */,
 				0499A0D8239023A20058D239 /* BarCodeViewInfo.swift */,
+				040E763823928D1700E67D54 /* TableBarCodeView.swift */,
+				040E76452394149700E67D54 /* ViewTableBarCode.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -227,10 +253,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040E76462394149800E67D54 /* ViewTableBarCode.swift in Sources */,
 				0499A0B6239008FB0058D239 /* BarCodeReader.swift in Sources */,
 				040E763423915CCA00E67D54 /* ProductList.swift in Sources */,
+				040E763C2392A74A00E67D54 /* CoreDataModel.xcdatamodeld in Sources */,
 				0499A0D423901BC60058D239 /* Controllers.swift in Sources */,
+				040E763723928C6C00E67D54 /* TableViewCell.swift in Sources */,
+				040E763E2392A79300E67D54 /* ModelData.swift in Sources */,
+				040E7644239400B600E67D54 /* CoreDataStack.swift in Sources */,
 				0499A0B4239008FB0058D239 /* AppDelegate.swift in Sources */,
+				040E763923928D1700E67D54 /* TableBarCodeView.swift in Sources */,
 				0499A0D6239020B80058D239 /* BarCodeView.swift in Sources */,
 				0499A0DD239034BA0058D239 /* API.swift in Sources */,
 				0499A0D9239023A20058D239 /* BarCodeViewInfo.swift in Sources */,
@@ -493,6 +525,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		040E763A2392A74A00E67D54 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				040E763B2392A74A00E67D54 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 040E763B2392A74A00E67D54 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0499A0A8239008FB0058D239 /* Project object */;
 }
