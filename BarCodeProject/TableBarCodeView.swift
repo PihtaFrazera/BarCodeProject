@@ -24,7 +24,10 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
         tableView.frame = CGRect.init(origin: .zero, size: size)
     }
     
-    func loafContext() {
+    func loadContext() {
+        dataForSwap.name.removeAll()
+        dataForSwap.images.removeAll()
+        dataForSwap.price.removeAll()
         let context = stack.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Object")
 
@@ -37,9 +40,7 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
               dataForSwap.price.append(data.value(forKey: "price") as! Float)
               dataForSwap.images.append(data.value(forKey: "images") as! Data)
             }
-
         } catch {
-
             print("Failed")
         }
 
@@ -47,8 +48,6 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loafContext()
         
         updateLayout(with: view.frame.size)
         tableView.register(TableViewCell.self, forCellReuseIdentifier: forCellReuseIdentifier)
@@ -60,33 +59,13 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(dataForSwap.name)
-       
+        loadContext()
 
-     //   print(text)
-       
-     //   viewTableBarCode..delegate = self
         view.addSubview(tableView)
         tableView.reloadData()
         
     }
-    
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-    
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return name.count
-//    }
-//
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: forCellReuseIdentifier, for: indexPath) as! TableViewCell
-//        cell.textLabel?.text = name[indexPath.row]
-//        cell.detailTextLabel?.text = String("\(price[indexPath.row])p")
-//       
-//        return cell
-//    }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewTableBarCode.labelName.text = dataForSwap.name[indexPath.row]
         viewTableBarCode.labelPrice.text = String("\(dataForSwap.price[indexPath.row])p")

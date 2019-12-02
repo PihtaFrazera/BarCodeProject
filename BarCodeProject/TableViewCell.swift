@@ -21,7 +21,7 @@ class TableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        imageView?.frame.size = CGSize(width: 40, height: 40)
+        imageView?.frame.size = CGSize(width: 70, height: 60)
     }
     
     override func prepareForReuse() {

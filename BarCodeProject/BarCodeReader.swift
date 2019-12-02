@@ -58,6 +58,7 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
             videoPreviewLayer.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer)
             
+            
              DispatchQueue.global(qos: .userInitiated).async {
                 self.captureSession?.startRunning()
             }
@@ -99,7 +100,7 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
         print(BarCode)
         print(object.type)
         delegate?.getBarCode(BarCode: BarCode)
-    //    stopRecord()
+        stopRecord()
 //        captureSession?.stopRunning()
 //        videoPreviewLayer?.removeFromSuperlayer()
 //        qrCodeFrameView?.removeFromSuperview()

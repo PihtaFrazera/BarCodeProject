@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class BarCodeViewInfo: UIViewController {
-    // Core data propert
+   
     let stack = CoreDataStack.shared
     var state = true
 
@@ -47,6 +47,7 @@ class BarCodeViewInfo: UIViewController {
         
         return barCodeView
     }()
+    
     
     @objc func addFavorite() {
         if state == true {
@@ -96,9 +97,4 @@ class BarCodeViewInfo: UIViewController {
         view.backgroundColor = .white
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    //    loafContext()
-        
-    }
 }
