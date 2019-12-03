@@ -77,13 +77,14 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
             return
         }
     }
-       
     
     func stopRecord() {
         captureSession?.stopRunning()
         videoPreviewLayer?.removeFromSuperlayer()
         qrCodeFrameView?.removeFromSuperview()
 
+        captureSession = nil
+        videoPreviewLayer = nil
     }
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -94,8 +95,8 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
                 return
         }
         
-        let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: object)
-        qrCodeFrameView?.frame = barCodeObject!.bounds
+    //    let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: object)
+    //    qrCodeFrameView?.frame = barCodeObject!.bounds
         
         print(BarCode)
         print(object.type)

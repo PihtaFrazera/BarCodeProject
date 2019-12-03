@@ -17,6 +17,11 @@ class BarCodeViewInfo: UIViewController {
     var productInfo: ProductInfo!
     let tableBarCodeView = TableBarCodeView()
   
+    var alert: UIAlertController {
+        let alertViewController = UIAlertController(title: "Уведомление", message: "Ваш товар сохранен", preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "Ок!", style: .cancel, handler: nil))
+        return alertViewController
+    }
     
     let labelPrice : UILabel = {
         let labelPrice = UILabel()
@@ -66,6 +71,7 @@ class BarCodeViewInfo: UIViewController {
                 try! context.save()
                 self.state = false
             }
+            self.present(alert, animated: true, completion: nil)
         } 
     }
 

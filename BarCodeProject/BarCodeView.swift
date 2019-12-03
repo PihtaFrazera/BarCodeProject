@@ -13,6 +13,19 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     
     
     let api = API()
+  
+    var alert: UIAlertController {
+        let alertViewController = UIAlertController(title: "Уведомление", message: "Продукт не найден", preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "Ок!", style: .cancel, handler: nil))
+        return alertViewController
+    }
+    
+    var alert1: UIAlertController {
+        let alertViewController = UIAlertController(title: "Уведомление", message: "неизвестная ошибка", preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "Ок!", style: .cancel, handler: nil))
+        return alertViewController
+    }
+    
     
     private var barCodeReader: BarCodeReaderProtocol = BarCodeReader()
     
@@ -37,7 +50,7 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     }()
     
     let scanView : UIView = {
-        let scanView = UIView(frame: CGRect(x: 60, y: 200, width: 200, height: 100))
+        let scanView = UIView(frame: CGRect(x: 60, y: 200, width: 200, height: 200))
         scanView.layer.cornerRadius = 10
         scanView.layer.borderColor = UIColor.white.cgColor
         scanView.layer.borderWidth = 3
@@ -48,25 +61,26 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
 
 override func viewDidLoad() {
     super.viewDidLoad()
-    
+     
+     view.backgroundColor = .lightGray
      navigationController?.navigationBar.barTintColor = .gray
     
+
      requestCameraAccess()
      barCodeReader.delegate = self
-    barCodeReader.startRecord(in: view)
-     view.addSubview(scanView)
-     view.addSubview(labelInfo)
 }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        barCodeReader.startRecord(in: scanView)
+        view.addSubview(scanView)
+        view.addSubview(labelInfo)
 }
 
     func productList(at BarCode: String) {
         api.getProductInfo(at: BarCode, getInfo: { (productList) in
             if productList.products.isEmpty {
-                print("empty product list")
+                self.present(self.alert, animated: true, completion: nil)
             } else {
                 guard let firstProduct = productList.products.first else { return }
                 DispatchQueue.main.async {
@@ -77,8 +91,8 @@ override func viewDidLoad() {
                     
                 }
             }
-        }) { (APIError) in
-            print("error")
+        }) { (error) in
+            self.present(self.alert1, animated: true, completion: nil)
         }
         
     }
