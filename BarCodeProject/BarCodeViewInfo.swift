@@ -17,6 +17,9 @@ class BarCodeViewInfo: UIViewController {
     var productInfo: ProductInfo!
     let tableBarCodeView = TableBarCodeView()
     
+    var spinner = UIActivityIndicatorView(style: .gray)
+    
+    
     let labelPrice : UILabel = {
         let labelPrice = UILabel()
         labelPrice.layer.shadowRadius = 4
@@ -51,6 +54,8 @@ class BarCodeViewInfo: UIViewController {
     }()
     
     
+    
+    
     @objc func addFavorite() {
         if state == true {
             print("Hello")
@@ -59,11 +64,11 @@ class BarCodeViewInfo: UIViewController {
                 animal.name = self.productInfo.name
                 animal.price = self.productInfo.price
                 
-                    if let url = URL(string: "https://img.napolke.ru/image/get?uuid=\(self.productInfo.images.first!)") {
-                        if let data = try? Data(contentsOf: url) {
-                           animal.images = data
-                        }
+                if let url = URL(string: "https://img.napolke.ru/image/get?uuid=\(self.productInfo.images.first!)") {
+                    if let data = try? Data(contentsOf: url) {
+                        animal.images = data
                     }
+                }
                 
                 try! context.save()
                 self.state = false
@@ -79,7 +84,7 @@ class BarCodeViewInfo: UIViewController {
                     self.barCodeView.image = UIImage(data: data)
                 }
             }
-    }
+        }
     }
     
     override func viewDidLoad() {
@@ -87,6 +92,12 @@ class BarCodeViewInfo: UIViewController {
         state = true
         navigationController?.navigationBar.barTintColor = .gray
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(addFavorite))
+        
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+        
+      
         
         let hight = view.frame.height
         let width = view.frame.width
@@ -108,6 +119,12 @@ class BarCodeViewInfo: UIViewController {
     }
     
     func layOut() {
+        
+        view.addSubview(spinner)
+        spinner.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
         view.addSubview(labelName)
         
         labelName.topAnchor.constraint(equalTo: view.topAnchor, constant: 400).isActive = true
