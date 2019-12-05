@@ -11,7 +11,7 @@ import AVFoundation
 
 class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     
-    
+    var cameraState = true
     let api = API()
 //    var alert: UIAlertController {
 //        let alertViewController = UIAlertController(title: "Уведомление", message: "Продукт не найден", preferredStyle: .alert)
@@ -36,6 +36,20 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
         }
     }
     
+    let actionButton : UIButton = {
+        let actionButton = UIButton(type: .custom)
+        actionButton.setTitle("BarCode", for: .normal)
+        actionButton.backgroundColor = .gray
+        actionButton.layer.shadowRadius = 4
+        actionButton.layer.shadowOpacity = 0.5
+        actionButton.layer.shadowOffset = CGSize(width: -3, height: -4)
+        actionButton.setTitleColor(UIColor.white, for: .normal)
+        actionButton.addTarget(self, action:  #selector(tapButton), for:.touchUpInside)
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+    //    actionButton.frame = CGRect(x: 75, y: 450, width: 200.0, height: 40.0)
+        return actionButton
+    }()
+    
     let labelInfo : UILabel = {
         let labelInfo = UILabel()
         labelInfo.layer.shadowRadius = 4
@@ -49,8 +63,16 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     }()
     
     let scanView : UIView = {
-         let scanView = UIView(frame: CGRect(x: 60, y: 200, width: 200, height: 200))
+        let scanView = UIView(frame: CGRect(x: 60, y: 200, width: 200, height: 200))
         return scanView
+    }()
+    
+    let borderView : UIView = {
+        let borderView = UIView(frame: CGRect(x: 60, y: 200, width: 200, height: 200))
+        borderView.layer.borderColor = UIColor.white.cgColor
+        borderView.layer.borderWidth = 5
+        
+        return borderView
     }()
 
 override func viewDidLoad() {
@@ -65,17 +87,42 @@ override func viewDidLoad() {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
      
-        requestCameraAccess()
-        view.addSubview(labelInfo)
+        cameraState = true
         
+        requestCameraAccess()
+        view.addSubview(borderView)
+        view.addSubview(labelInfo)
         labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         labelInfo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        view.addSubview(scanView)
+        view.addSubview(actionButton)
+        actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
+        actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        actionButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        actionButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
-        barCodeReader.startRecord(in: scanView)
+        view.addSubview(scanView)
+        view.bringSubviewToFront(borderView)
+       // barCodeReader.startRecord(in: scanView)
   
 }
+    
+    @objc func tapButton() {
+        if cameraState == true {
+            cameraState = false
+            barCodeReader.startRecord(in: scanView)
+            UIView.animate(withDuration: 1, animations: {
+                 self.scanView.alpha = 1
+            })
+        }
+        else {
+            cameraState = true
+            barCodeReader.stopRecord()
+            UIView.animate(withDuration: 1, animations: {
+                     self.scanView.alpha = 0
+            })
+        }
+    }
 
     func productList(at BarCode: String) {
         api.getProductInfo(at: BarCode, getInfo: { (productList) in
