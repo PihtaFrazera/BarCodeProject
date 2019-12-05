@@ -56,7 +56,9 @@ class ViewTableBarCode: UIViewController, UITableViewDelegate {
 //        view.addSubview(labelPrice)
 //        view.addSubview(barCodeView)
         layOut()
-        view.backgroundColor = .white
+        
+        view.backgroundColor = .lightGray
+        navigationController?.navigationBar.barTintColor = .gray
         
     }
     

@@ -23,6 +23,7 @@ class DataForSwap: NSObject, UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: forCellReuseIdentifier, for: indexPath) as! TableViewCell
+        cell.backgroundColor = .lightGray
         cell.imageView?.image = UIImage(data: images[indexPath.row])
         cell.textLabel?.text = name[indexPath.row]
         cell.detailTextLabel?.text = String("\(price[indexPath.row])p")

@@ -48,9 +48,9 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.barTintColor = .gray
         updateLayout(with: view.frame.size)
-        
+        view.backgroundColor = .lightGray
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

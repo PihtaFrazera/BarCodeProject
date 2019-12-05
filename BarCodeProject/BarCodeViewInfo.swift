@@ -29,7 +29,6 @@ class BarCodeViewInfo: UIViewController {
         labelPrice.textAlignment = .center
         labelPrice.numberOfLines = 3
         labelPrice.translatesAutoresizingMaskIntoConstraints = false
-      //  labelPrice.frame = CGRect(x: 25, y: 480, width: 250.0, height: 40.0)
         return labelPrice
     }()
     
@@ -42,12 +41,10 @@ class BarCodeViewInfo: UIViewController {
         labelName.textAlignment = .center
         labelName.numberOfLines = 3
         labelName.translatesAutoresizingMaskIntoConstraints = false
-      //  labelName.frame = CGRect(x: 25, y: 380, width: 250.0, height: 80.0)
         return labelName
     }()
     
     let barCodeView : UIImageView = {
-      //  let barCodeView = UIImageView(frame: CGRect(x: 50, y: 120, width: 250, height: 250))
         let barCodeView = UIImageView()
         barCodeView.translatesAutoresizingMaskIntoConstraints = false
         return barCodeView
@@ -113,14 +110,13 @@ class BarCodeViewInfo: UIViewController {
         
         print(productInfo.images.first!)
         
-        
-        
         view.backgroundColor = .white
     }
     
     func layOut() {
         
         view.addSubview(spinner)
+        
         spinner.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
