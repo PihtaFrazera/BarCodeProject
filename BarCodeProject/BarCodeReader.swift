@@ -11,7 +11,6 @@ import AVFoundation
 
 protocol BarCodeReaderDeleagte: class {
     func getBarCode(BarCode: String)
-    func showError()
 }
 
 protocol BarCodeReaderProtocol {

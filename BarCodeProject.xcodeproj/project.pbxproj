@@ -15,6 +15,7 @@
 		040E7644239400B600E67D54 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E7643239400B600E67D54 /* CoreDataStack.swift */; };
 		040E76462394149800E67D54 /* ViewTableBarCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E76452394149700E67D54 /* ViewTableBarCode.swift */; };
 		040E7648239454EB00E67D54 /* DataForSwap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E7647239454EA00E67D54 /* DataForSwap.swift */; };
+		040E764C2398421900E67D54 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E764B2398421900E67D54 /* Alerts.swift */; };
 		0499A0B4239008FB0058D239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B3239008FB0058D239 /* AppDelegate.swift */; };
 		0499A0B6239008FB0058D239 /* BarCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B5239008FB0058D239 /* BarCodeReader.swift */; };
 		0499A0BB239008FE0058D239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0499A0BA239008FE0058D239 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		040E7643239400B600E67D54 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		040E76452394149700E67D54 /* ViewTableBarCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTableBarCode.swift; sourceTree = "<group>"; };
 		040E7647239454EA00E67D54 /* DataForSwap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataForSwap.swift; sourceTree = "<group>"; };
+		040E764B2398421900E67D54 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		0499A0B0239008FB0058D239 /* BarCodeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarCodeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0499A0B3239008FB0058D239 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0499A0B5239008FB0058D239 /* BarCodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeReader.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				0499A0B5239008FB0058D239 /* BarCodeReader.swift */,
 				040E763623928C6C00E67D54 /* TableViewCell.swift */,
 				040E7647239454EA00E67D54 /* DataForSwap.swift */,
+				040E764B2398421900E67D54 /* Alerts.swift */,
 				040E76352391BB9C00E67D54 /* CoreData */,
 				0499A0DB239034A40058D239 /* Networking */,
 				0499A0D7239020BF0058D239 /* View */,
@@ -258,6 +261,7 @@
 			files = (
 				040E76462394149800E67D54 /* ViewTableBarCode.swift in Sources */,
 				0499A0B6239008FB0058D239 /* BarCodeReader.swift in Sources */,
+				040E764C2398421900E67D54 /* Alerts.swift in Sources */,
 				040E763423915CCA00E67D54 /* ProductList.swift in Sources */,
 				040E763C2392A74A00E67D54 /* CoreDataModel.xcdatamodeld in Sources */,
 				0499A0D423901BC60058D239 /* Controllers.swift in Sources */,

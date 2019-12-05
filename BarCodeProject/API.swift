@@ -8,14 +8,8 @@
 
 import Foundation
 
-enum APIError: Error {
-    case responseProblem
-    case decodingProblem
-    case otherProblem
-}
-
 class API {
-    func getProductInfo(at BarCode: String, getInfo: ((ProductList) -> Void)?, fail: @escaping (APIError?) -> Void?) {
+    func getProductInfo(at BarCode: String, getInfo: ((ProductList) -> Void)?, fail: @escaping (AlertAnswer?) -> Void?) {
     let url = URL(string: "https://catalog.napolke.ru/search/catalog")!
    
     var request = URLRequest(url: url)

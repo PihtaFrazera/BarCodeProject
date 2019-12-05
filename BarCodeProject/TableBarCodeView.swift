@@ -50,6 +50,16 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
         super.viewDidLoad()
         
         updateLayout(with: view.frame.size)
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
+        
         tableView.register(TableViewCell.self, forCellReuseIdentifier: forCellReuseIdentifier)
         tableView.dataSource = dataForSwap
         tableView.delegate = self
@@ -61,7 +71,6 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
         print(dataForSwap.name)
         loadContext()
 
-        view.addSubview(tableView)
         tableView.reloadData()
         
     }
