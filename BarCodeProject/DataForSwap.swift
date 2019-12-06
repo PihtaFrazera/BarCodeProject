@@ -25,9 +25,9 @@ class DataForSwap: NSObject, UITableViewDataSource, UITableViewDelegate{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: forCellReuseIdentifier, for: indexPath) as! TableViewCell
         cell.backgroundColor = .lightGray
-        cell.imageView?.image = UIImage(data: images[indexPath.row])
-        cell.textLabel?.text = name[indexPath.row]
-        cell.detailTextLabel?.text = String("\(price[indexPath.row])p")
+        cell.imageViewCell.image = UIImage(data: images[indexPath.row])
+        cell.title.text = name[indexPath.row]
+        cell.subTitle.text = String("\(price[indexPath.row])p")
         
         return cell
     }

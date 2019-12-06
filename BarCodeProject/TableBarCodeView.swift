@@ -77,6 +77,7 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         viewTableBarCode.labelName.text = dataForSwap.name[indexPath.row]
         viewTableBarCode.labelPrice.text = String("\(dataForSwap.price[indexPath.row])p")
         viewTableBarCode.barCodeView.image = UIImage(data: dataForSwap.images[indexPath.row])

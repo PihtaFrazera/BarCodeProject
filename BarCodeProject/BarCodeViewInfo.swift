@@ -80,6 +80,8 @@ class BarCodeViewInfo: UIViewController {
                 if let data = try? Data(contentsOf: url) {
                     self.barCodeView.image = UIImage(data: data)
                 }
+            } else {
+                self.barCodeView.image = UIImage(named: "imageNotFound")
             }
         }
     }
