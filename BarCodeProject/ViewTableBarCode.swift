@@ -20,7 +20,6 @@ class ViewTableBarCode: UIViewController, UITableViewDelegate {
         labelPrice.textAlignment = .center
         labelPrice.numberOfLines = 3
         labelPrice.translatesAutoresizingMaskIntoConstraints = false
-     //   labelPrice.frame = CGRect(x: 25, y: 480, width: 250.0, height: 40.0)
         return labelPrice
     }()
     
@@ -33,13 +32,11 @@ class ViewTableBarCode: UIViewController, UITableViewDelegate {
         labelName.textAlignment = .center
         labelName.numberOfLines = 3
         labelName.translatesAutoresizingMaskIntoConstraints = false
-      //  labelName.frame = CGRect(x: 25, y: 380, width: 250.0, height: 80.0)
         return labelName
     }()
     
     let barCodeView : UIImageView = {
         let barCodeView = UIImageView()
-    //    let barCodeView = UIImageView(frame: CGRect(x: 50, y: 120, width: 250, height: 250))
         barCodeView.translatesAutoresizingMaskIntoConstraints = false
         
         return barCodeView
@@ -47,14 +44,6 @@ class ViewTableBarCode: UIViewController, UITableViewDelegate {
     
     
     override func viewDidLoad() {
-        
-   //     labelName.text = productInfo.name
-   //     labelPrice.text =  Мин. цена: \(productInfo.price)"
-    
-        
-//        view.addSubview(labelName)
-//        view.addSubview(labelPrice)
-//        view.addSubview(barCodeView)
         layOut()
         
         view.backgroundColor = .lightGray

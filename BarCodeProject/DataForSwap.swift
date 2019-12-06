@@ -15,6 +15,7 @@ class DataForSwap: NSObject, UITableViewDataSource, UITableViewDelegate{
     var name : [String] = []
     var price : [Float] = []
     var images : [Data] = []
+    var indexPath = 0
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return name.count
@@ -30,4 +31,5 @@ class DataForSwap: NSObject, UITableViewDataSource, UITableViewDelegate{
         
         return cell
     }
+    
 }

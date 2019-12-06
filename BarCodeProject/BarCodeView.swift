@@ -13,18 +13,6 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     
     var cameraState = true
     let api = API()
-//    var alert: UIAlertController {
-//        let alertViewController = UIAlertController(title: "Уведомление", message: "Продукт не найден", preferredStyle: .alert)
-//        alertViewController.addAction(UIAlertAction(title: "Ок!", style: .cancel, handler: nil))
-//        return alertViewController
-//    }
-//    
-//    var alert1: UIAlertController {
-//        let alertViewController = UIAlertController(title: "Уведомление", message: "неизвестная ошибка", preferredStyle: .alert)
-//        alertViewController.addAction(UIAlertAction(title: "Ок!", style: .cancel, handler: nil))
-//        return alertViewController
-//    }
-//    
     
     private var barCodeReader: BarCodeReaderProtocol = BarCodeReader()
     
@@ -46,7 +34,6 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
         actionButton.setTitleColor(UIColor.white, for: .normal)
         actionButton.addTarget(self, action:  #selector(tapButton), for:.touchUpInside)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
-    //    actionButton.frame = CGRect(x: 75, y: 450, width: 200.0, height: 40.0)
         return actionButton
     }()
     
