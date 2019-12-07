@@ -10,10 +10,15 @@ import UIKit
 import CoreData
 
 class BarCodeViewInfo: UIViewController {
-   
+    
+    var navigationName = "+"
+    var stateNavigationEnter = true
+    var dataForSwap = DataForSwap()
+    
     let stack = CoreDataStack.shared
     var state = true
-
+    
+    
     var productInfo: ProductInfo!
     let tableBarCodeView = TableBarCodeView()
     
@@ -55,6 +60,7 @@ class BarCodeViewInfo: UIViewController {
     
     @objc func addFavorite() {
         if state == true {
+            navigationItem.rightBarButtonItem?.isEnabled = false
             print("Hello")
             stack.persistentContainer.performBackgroundTask { (context) in
                 let animal = ModelData(context: context)
@@ -73,7 +79,12 @@ class BarCodeViewInfo: UIViewController {
             self.present(AlertAnswer.saveProduct.alert, animated: true, completion: nil)
         } 
     }
-
+    
+    func dellCoreData() {
+        
+    }
+    
+    
     func loadImage() {
         DispatchQueue.main.async {
             if let url = URL(string: "https://img.napolke.ru/image/get?uuid=\(self.productInfo.images.first!)") {
@@ -85,32 +96,34 @@ class BarCodeViewInfo: UIViewController {
             }
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("имена из даты \(dataForSwap.name)")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        state = true
-        navigationController?.navigationBar.barTintColor = .gray
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(addFavorite))
         
+        state = true
+        navigationItem.rightBarButtonItem?.isEnabled = true
+        navigationController?.navigationBar.barTintColor = .gray
         
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.startAnimating()
         
-      
+        if stateNavigationEnter == true {
+            
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: navigationName, style: .done, target: self, action: #selector(addFavorite))
+            labelName.text = productInfo.name
+            labelPrice.text = "Мин. цена: \(productInfo.price)"
+            loadImage()
+            
+        } else {
+           
+        }
         
-        let hight = view.frame.height
-        let width = view.frame.width
-        
-        print("higth = \(hight)")
-        print("width = \(width)")
-        
-        labelName.text = productInfo.name
-        labelPrice.text = "Мин. цена: \(productInfo.price)"
-    
-        loadImage()
         layOut()
-        
-        print(productInfo.images.first!)
         
         view.backgroundColor = .white
     }

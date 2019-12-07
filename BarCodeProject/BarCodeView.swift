@@ -11,6 +11,8 @@ import AVFoundation
 
 class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     
+    let dataForSwap = DataForSwap()
+    
     var cameraState = true
     let api = API()
     
@@ -115,6 +117,7 @@ override func viewDidLoad() {
         api.getProductInfo(at: BarCode, getInfo: { (productList) in
             if productList.products.isEmpty {
                 self.present(AlertAnswer.productNotFound.alert, animated: true, completion: nil)
+                self.cameraState = true
             } else {
                 guard let firstProduct = productList.products.first else { return }
                 DispatchQueue.main.async {

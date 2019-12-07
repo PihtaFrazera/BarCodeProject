@@ -16,6 +16,7 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
     let dataForSwap = DataForSwap()
     let stack = CoreDataStack.shared
     let forCellReuseIdentifier = "cellid"
+   
     
     private func updateLayout(with size: CGSize) {
         tableView.frame = CGRect.init(origin: .zero, size: size)
@@ -27,7 +28,7 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
         dataForSwap.price.removeAll()
         let context = stack.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Object")
-
+        
         request.returnsObjectsAsFaults = false
 
         do {
@@ -45,6 +46,8 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Удалить всю корзину", style: .done, target: self, action: #selector(clearDeepObjectEntity))
         
         navigationController?.navigationBar.barTintColor = .gray
         updateLayout(with: view.frame.size)
@@ -65,7 +68,7 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
         tableView.delegate = self
         
     }
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -76,28 +79,69 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
         
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    @objc func clearDeepObjectEntity() {
+        dataForSwap.name.removeAll()
+        dataForSwap.images.removeAll()
+        dataForSwap.price.removeAll()
         
-        viewTableBarCode.labelName.text = dataForSwap.name[indexPath.row]
-        viewTableBarCode.labelPrice.text = String("\(dataForSwap.price[indexPath.row])p")
-        viewTableBarCode.barCodeView.image = UIImage(data: dataForSwap.images[indexPath.row])
-        self.navigationController?.pushViewController(viewTableBarCode, animated: true)
+        let context = stack.persistentContainer.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Object")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
+        self.present(AlertAnswer.saveProduct.alert, animated: true, completion: nil)
+        tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let barCodeViewInfo = BarCodeViewInfo()
+//        viewTableBarCode.labelName.text = dataForSwap.name[indexPath.row]
+//        viewTableBarCode.labelPrice.text = String("\(dataForSwap.price[indexPath.row])p")
+//        viewTableBarCode.barCodeView.image = UIImage(data: dataForSwap.images[indexPath.row])
         
-        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить", handler: { (action, IndexPath) in
-            self.dataForSwap.name.remove(at: IndexPath.row)
-            self.dataForSwap.price.remove(at: IndexPath.row)
-            self.dataForSwap.images.remove(at: IndexPath.row)
-            self.dataForSwap.indexPath = indexPath.row
-            tableView.deleteRows(at: [IndexPath as IndexPath], with: .fade)
-        })
+        barCodeViewInfo.labelName.text = dataForSwap.name[indexPath.row]
+        barCodeViewInfo.labelPrice.text = String("\(dataForSwap.price[indexPath.row])p")
+        barCodeViewInfo.barCodeView.image = UIImage(data: dataForSwap.images[indexPath.row])
+        barCodeViewInfo.navigationName = "Сохранить изменения"
+        barCodeViewInfo.stateNavigationEnter = false
         
-        deleteAction.backgroundColor = UIColor.gray
         
-        return [deleteAction]
+        self.navigationController?.pushViewController(barCodeViewInfo, animated: true)
     }
+    
+    
+ //   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        
+//        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить", handler: { (action, IndexPath) in
+//            self.dataForSwap.name.remove(at: IndexPath.row)
+//            self.dataForSwap.price.remove(at: IndexPath.row)
+//            self.dataForSwap.images.remove(at: IndexPath.row)
+//            
+//            let context = self.stack.persistentContainer.viewContext
+//            
+//            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Object")
+//            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+//            
+//            do {
+//                try context.execute(deleteRequest)
+//                try context.save()
+//            } catch {
+//                print ("There was an error")
+//            }
+//            
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        })
+//        
+//        deleteAction.backgroundColor = UIColor.gray
+//        
+//        return [deleteAction]
+ //   }
 
 }
 
