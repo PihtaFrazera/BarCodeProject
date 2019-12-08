@@ -14,16 +14,12 @@ class BarCodeViewInfo: UIViewController {
     var navigationName = "+"
     var stateNavigationEnter = true
     var dataForSwap = DataForSwap()
-    
-    let stack = CoreDataStack.shared
+    var productInfo: ProductInfo!
+    var spinner = UIActivityIndicatorView(style: .gray)
     var state = true
     
-    
-    var productInfo: ProductInfo!
+    let stack = CoreDataStack.shared
     let tableBarCodeView = TableBarCodeView()
-    
-    var spinner = UIActivityIndicatorView(style: .gray)
-    
     
     let labelPrice : UILabel = {
         let labelPrice = UILabel()
@@ -55,21 +51,19 @@ class BarCodeViewInfo: UIViewController {
         return barCodeView
     }()
     
-    
-    
-    
+    // добавление продукта в корзину
     @objc func addFavorite() {
         if state == true {
             navigationItem.rightBarButtonItem?.isEnabled = false
             print("Hello")
             stack.persistentContainer.performBackgroundTask { (context) in
-                let animal = ModelData(context: context)
-                animal.name = self.productInfo.name
-                animal.price = self.productInfo.price
+                let products = ModelData(context: context)
+                products.name = self.productInfo.name
+                products.price = self.productInfo.price
                 
                 if let url = URL(string: "https://img.napolke.ru/image/get?uuid=\(self.productInfo.images.first!)") {
                     if let data = try? Data(contentsOf: url) {
-                        animal.images = data
+                        products.images = data
                     }
                 }
                 
@@ -80,11 +74,7 @@ class BarCodeViewInfo: UIViewController {
         } 
     }
     
-    func dellCoreData() {
-        
-    }
-    
-    
+    // загрузка изображения
     func loadImage() {
         DispatchQueue.main.async {
             if let url = URL(string: "https://img.napolke.ru/image/get?uuid=\(self.productInfo.images.first!)") {
@@ -96,9 +86,9 @@ class BarCodeViewInfo: UIViewController {
             }
         }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("имена из даты \(dataForSwap.name)")
     }
     
     
@@ -106,6 +96,7 @@ class BarCodeViewInfo: UIViewController {
         super.viewDidLoad()
         
         state = true
+        
         navigationItem.rightBarButtonItem?.isEnabled = true
         navigationController?.navigationBar.barTintColor = .gray
         
@@ -113,14 +104,10 @@ class BarCodeViewInfo: UIViewController {
         spinner.startAnimating()
         
         if stateNavigationEnter == true {
-            
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: navigationName, style: .done, target: self, action: #selector(addFavorite))
             labelName.text = productInfo.name
             labelPrice.text = "Мин. цена: \(productInfo.price)"
             loadImage()
-            
-        } else {
-           
         }
         
         layOut()

@@ -15,10 +15,9 @@ class API {
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
 
+    // в текст передается штрих код в регион забит регион Москвы согласно ФИАС
     request.httpBody = try? JSONSerialization.data(withJSONObject: ["text": BarCode, "region": ["0c5b2444-70a0-4932-980c-b4dc0d3f02b5", nil, nil]] as [String : Any], options: .prettyPrinted)
 
-   
-        
     let session = URLSession.shared
     session.dataTask(with: request) { data, response, error in
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200,

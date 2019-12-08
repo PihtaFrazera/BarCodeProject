@@ -14,6 +14,7 @@ enum AlertAnswer: String, Error {
     case otherProblem = "Непонятная ошибка"
     case productNotFound = "Продукт не найден"
     case saveProduct = "Ваш товар сохранен"
+    case deleteAllProducts = "Ваша корзина удалена"
     
     var alert: UIAlertController {
         let message = self.rawValue

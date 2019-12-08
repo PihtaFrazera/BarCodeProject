@@ -21,7 +21,7 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     private func requestCameraAccess() {
         AVCaptureDevice.requestAccess(for: .video) { (access) in
             if !access {
-              print("fdfddf")
+              print("камера не включена")
             }
         }
     }
@@ -52,12 +52,14 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
     }()
     
     let scanView : UIView = {
-        let scanView = UIView(frame: CGRect(x: 60, y: 200, width: 200, height: 200))
+        let scanView = UIView()
+        scanView.translatesAutoresizingMaskIntoConstraints = false
         return scanView
     }()
     
     let borderView : UIView = {
-        let borderView = UIView(frame: CGRect(x: 60, y: 200, width: 200, height: 200))
+        let borderView = UIView()
+        borderView.translatesAutoresizingMaskIntoConstraints = false
         borderView.layer.borderColor = UIColor.white.cgColor
         borderView.layer.borderWidth = 5
         
@@ -77,23 +79,8 @@ override func viewDidLoad() {
         super.viewWillAppear(animated)
      
         cameraState = true
-        
         requestCameraAccess()
-        view.addSubview(borderView)
-        view.addSubview(labelInfo)
-        labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        labelInfo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        view.addSubview(actionButton)
-        actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
-        actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        actionButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        actionButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-
-        view.addSubview(scanView)
-        view.bringSubviewToFront(borderView)
-       // barCodeReader.startRecord(in: scanView)
-  
+        layOut()
 }
     
     @objc func tapButton() {
@@ -112,7 +99,8 @@ override func viewDidLoad() {
             })
         }
     }
-
+    
+    // обработака
     func productList(at BarCode: String) {
         api.getProductInfo(at: BarCode, getInfo: { (productList) in
             if productList.products.isEmpty {
@@ -134,6 +122,7 @@ override func viewDidLoad() {
         
     }
     
+    // функция которая пушит в другой вью контроллер и передает инфу по сканируемому продукту
     func pushViewController(firstProduct: ProductInfo) {
         let barCodeViewInfo = BarCodeViewInfo()
         barCodeViewInfo.productInfo = firstProduct
@@ -141,9 +130,37 @@ override func viewDidLoad() {
         
     }
     
+    //функция обрабатывающая баркод
     func getBarCode(BarCode: String) {
         barCodeReader.stopRecord()
         productList(at: BarCode)
+    }
+    
+    // настрйока констреинтов
+    func layOut() {
+        view.addSubview(borderView)
+        borderView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        borderView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        borderView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        borderView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        view.addSubview(labelInfo)
+        labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        labelInfo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        view.addSubview(actionButton)
+        actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
+        actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        actionButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        actionButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        view.addSubview(scanView)
+        scanView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        scanView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        scanView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        scanView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        view.bringSubviewToFront(borderView)
     }
     
 }
