@@ -31,13 +31,21 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
     
     
     func startRecord(in view: UIView) {
-        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        //Получаем заднюю камеру для захвата видео
+        guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
+            print("Failed to get the camera device")
+            return
+        }
         
         do {
-            let input = try AVCaptureDeviceInput(device: captureDevice!)
+            // Получаем экземпляр класса AVCaptureDeviceInput, используя предыдущий объект устройства.
+            let input = try AVCaptureDeviceInput(device: captureDevice)
+            // Для выполнения захвата в реальном времени
             captureSession = AVCaptureSession()
+            // Устанавливаем устройство ввода на сеанс завхвата
             captureSession?.addInput(input)
             
+            // Инициализируем объект и устанавливаем его в качестве устройства вывода для сеанса захвата
             let captureMetadataOutput = AVCaptureMetadataOutput()
             captureSession?.addOutput(captureMetadataOutput)
             
@@ -48,6 +56,7 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
                                                          .code128,
                                                          .code39]
             
+            // Инициализируем слой предварительного просмотра видео и добавляем его в качестве sublayer для представления viewPreview
             let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
             videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer.connection?.videoOrientation = .portrait
@@ -57,7 +66,7 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
             videoPreviewLayer.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer)
             
-            
+            // стартуем видео захват
              DispatchQueue.global(qos: .userInitiated).async {
                 self.captureSession?.startRunning()
             }
@@ -86,6 +95,7 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
         videoPreviewLayer = nil
     }
 
+   // функция для декодирования данных
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         guard !metadataObjects.isEmpty,
@@ -93,17 +103,9 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
             let BarCode = object.stringValue else {
                 return
         }
-        
-    //    let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: object)
-    //    qrCodeFrameView?.frame = barCodeObject!.bounds
-        
-        print(BarCode)
-        print(object.type)
+    
         delegate?.getBarCode(BarCode: BarCode)
         stopRecord()
-//        captureSession?.stopRunning()
-//        videoPreviewLayer?.removeFromSuperlayer()
-//        qrCodeFrameView?.removeFromSuperview()
     
     }
 

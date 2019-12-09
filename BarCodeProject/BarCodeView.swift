@@ -71,7 +71,7 @@ override func viewDidLoad() {
      
      view.backgroundColor = .lightGray
      navigationController?.navigationBar.barTintColor = .gray
-    
+
      barCodeReader.delegate = self
 }
     
@@ -109,9 +109,6 @@ override func viewDidLoad() {
             } else {
                 guard let firstProduct = productList.products.first else { return }
                 DispatchQueue.main.async {
-                    print(firstProduct.price)
-                    print(firstProduct.name)
-                    print(firstProduct.images)
                     self.pushViewController(firstProduct: firstProduct)
                     
                 }

@@ -47,7 +47,7 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Удалить всю корзину", style: .done, target: self, action: #selector(clearDeepObjectEntity))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Удалить всю корзину", style: .done, target: self, action: #selector(clearDeepObjectEntity))
         
         navigationController?.navigationBar.barTintColor = .gray
         updateLayout(with: view.frame.size)
@@ -108,7 +108,6 @@ class TableBarCodeView: UIViewController, UITableViewDelegate, NSFetchedResultsC
         barCodeViewInfo.labelPrice.text = String("\(dataForSwap.price[indexPath.row])p")
         barCodeViewInfo.barCodeView.image = UIImage(data: dataForSwap.images[indexPath.row])
         barCodeViewInfo.stateNavigationEnter = false
-        
         
         self.navigationController?.pushViewController(barCodeViewInfo, animated: true)
     }
