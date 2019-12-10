@@ -9,6 +9,7 @@
 import Foundation
 
 class API {
+    let region = "0c5b2444-70a0-4932-980c-b4dc0d3f02b5"
     func getProductInfo(at BarCode: String, getInfo: ((ProductList) -> Void)?, fail: @escaping (AlertAnswer?) -> Void?) {
     let url = URL(string: "https://catalog.napolke.ru/search/catalog")!
    
@@ -16,7 +17,7 @@ class API {
     request.httpMethod = "POST"
 
     // в текст передается штрих код в регион забит регион Москвы согласно ФИАС
-    request.httpBody = try? JSONSerialization.data(withJSONObject: ["text": BarCode, "region": ["0c5b2444-70a0-4932-980c-b4dc0d3f02b5", nil, nil]] as [String : Any], options: .prettyPrinted)
+    request.httpBody = try? JSONSerialization.data(withJSONObject: ["text": BarCode, "region": [region, nil, nil]] as [String : Any], options: .prettyPrinted)
 
     let session = URLSession.shared
     session.dataTask(with: request) { data, response, error in
@@ -33,5 +34,4 @@ class API {
         }
         }.resume()
     }
-    
 }

@@ -90,7 +90,7 @@ class BarCodeReader: NSObject, AVCaptureMetadataOutputObjectsDelegate, BarCodeRe
         captureSession?.stopRunning()
         videoPreviewLayer?.removeFromSuperlayer()
         qrCodeFrameView?.removeFromSuperview()
-
+        
         captureSession = nil
         videoPreviewLayer = nil
     }

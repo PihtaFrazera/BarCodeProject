@@ -19,12 +19,13 @@
 		0499A0B6239008FB0058D239 /* BarCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B5239008FB0058D239 /* BarCodeReader.swift */; };
 		0499A0BB239008FE0058D239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0499A0BA239008FE0058D239 /* Assets.xcassets */; };
 		0499A0BE239008FE0058D239 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0499A0BC239008FE0058D239 /* LaunchScreen.storyboard */; };
-		0499A0C9239008FE0058D239 /* BarCodeProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0C8239008FE0058D239 /* BarCodeProjectTests.swift */; };
+		0499A0C9239008FE0058D239 /* IconNameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0C8239008FE0058D239 /* IconNameTest.swift */; };
 		0499A0D423901BC60058D239 /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D323901BC60058D239 /* Controllers.swift */; };
 		0499A0D6239020B80058D239 /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D5239020B80058D239 /* BarCodeView.swift */; };
 		0499A0D9239023A20058D239 /* BarCodeViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D8239023A20058D239 /* BarCodeViewInfo.swift */; };
 		0499A0DD239034BA0058D239 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0DC239034BA0058D239 /* API.swift */; };
 		0499A0DF23903FC40058D239 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0DE23903FC40058D239 /* ProductInfo.swift */; };
+		04C7383523A000C000186C69 /* ArrayDataForSwapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7383423A000C000186C69 /* ArrayDataForSwapTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,13 +54,14 @@
 		0499A0BD239008FE0058D239 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0499A0BF239008FE0058D239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0499A0C4239008FE0058D239 /* BarCodeProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarCodeProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0499A0C8239008FE0058D239 /* BarCodeProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeProjectTests.swift; sourceTree = "<group>"; };
+		0499A0C8239008FE0058D239 /* IconNameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconNameTest.swift; sourceTree = "<group>"; };
 		0499A0CA239008FE0058D239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0499A0D323901BC60058D239 /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
 		0499A0D5239020B80058D239 /* BarCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
 		0499A0D8239023A20058D239 /* BarCodeViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeViewInfo.swift; sourceTree = "<group>"; };
 		0499A0DC239034BA0058D239 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0499A0DE23903FC40058D239 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
+		04C7383423A000C000186C69 /* ArrayDataForSwapTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDataForSwapTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +116,10 @@
 				0499A0B3239008FB0058D239 /* AppDelegate.swift */,
 				0499A0D323901BC60058D239 /* Controllers.swift */,
 				0499A0B5239008FB0058D239 /* BarCodeReader.swift */,
-				040E763623928C6C00E67D54 /* TableViewCell.swift */,
-				040E7647239454EA00E67D54 /* DataForSwap.swift */,
-				040E764B2398421900E67D54 /* Alerts.swift */,
 				040E76352391BB9C00E67D54 /* CoreData */,
 				0499A0DB239034A40058D239 /* Networking */,
 				0499A0D7239020BF0058D239 /* View */,
+				04C73831239ED19B00186C69 /* Model */,
 				0499A0BA239008FE0058D239 /* Assets.xcassets */,
 				0499A0BC239008FE0058D239 /* LaunchScreen.storyboard */,
 				0499A0BF239008FE0058D239 /* Info.plist */,
@@ -130,7 +130,8 @@
 		0499A0C7239008FE0058D239 /* BarCodeProjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				0499A0C8239008FE0058D239 /* BarCodeProjectTests.swift */,
+				0499A0C8239008FE0058D239 /* IconNameTest.swift */,
+				04C7383423A000C000186C69 /* ArrayDataForSwapTest.swift */,
 				0499A0CA239008FE0058D239 /* Info.plist */,
 			);
 			path = BarCodeProjectTests;
@@ -154,6 +155,16 @@
 				040E763323915CCA00E67D54 /* ProductList.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		04C73831239ED19B00186C69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				040E764B2398421900E67D54 /* Alerts.swift */,
+				040E763623928C6C00E67D54 /* TableViewCell.swift */,
+				040E7647239454EA00E67D54 /* DataForSwap.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +289,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0499A0C9239008FE0058D239 /* BarCodeProjectTests.swift in Sources */,
+				04C7383523A000C000186C69 /* ArrayDataForSwapTest.swift in Sources */,
+				0499A0C9239008FE0058D239 /* IconNameTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6X8Y72J34C;
 				INFOPLIST_FILE = BarCodeProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -443,6 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6X8Y72J34C;
 				INFOPLIST_FILE = BarCodeProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

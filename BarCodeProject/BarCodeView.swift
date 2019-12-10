@@ -62,7 +62,6 @@ class BarCodeView: UIViewController, BarCodeReaderDeleagte {
         borderView.translatesAutoresizingMaskIntoConstraints = false
         borderView.layer.borderColor = UIColor.white.cgColor
         borderView.layer.borderWidth = 5
-        
         return borderView
     }()
 
@@ -95,7 +94,7 @@ override func viewDidLoad() {
             cameraState = true
             barCodeReader.stopRecord()
             UIView.animate(withDuration: 1, animations: {
-                     self.scanView.alpha = 0
+                self.scanView.alpha = 0
             })
         }
     }
@@ -146,7 +145,7 @@ override func viewDidLoad() {
         labelInfo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         view.addSubview(actionButton)
-        actionButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 450).isActive = true
+        actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         actionButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         actionButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
