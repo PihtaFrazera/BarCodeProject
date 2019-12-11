@@ -44,6 +44,7 @@ class TableViewCell: UITableViewCell {
         contentView.addSubview(imageViewCell)
         imageViewCell.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
         imageViewCell.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8).isActive = true
+        imageViewCell.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5).isActive = true
         imageViewCell.heightAnchor.constraint(equalToConstant: 100).isActive = true
         imageViewCell.widthAnchor.constraint(equalToConstant: 100).isActive = true
     
@@ -66,7 +67,6 @@ class TableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
     }
     
     override func prepareForReuse() {

@@ -15,11 +15,6 @@ class Controllers: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         //Первый Tab
         let tabOne = BarCodeView()
         
@@ -27,7 +22,7 @@ class Controllers: UITabBarController {
         
         //Первый навигационный контроллер на нем должна быть камера
         let navViewController = UINavigationController(rootViewController: tabOne)
-    
+        
         let tabTwo = TableBarCodeView()
         tabTwo.tabBarItem = UITabBarItem(title: "Сохраненные продукты", image: iconShop, tag: 2)
         
@@ -37,4 +32,5 @@ class Controllers: UITabBarController {
         
         self.viewControllers = [navViewController, navDataViewController]
     }
+
 }

@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		040E763423915CCA00E67D54 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763323915CCA00E67D54 /* ProductList.swift */; };
-		040E763723928C6C00E67D54 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763623928C6C00E67D54 /* TableViewCell.swift */; };
-		040E763923928D1700E67D54 /* TableBarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763823928D1700E67D54 /* TableBarCodeView.swift */; };
 		040E763C2392A74A00E67D54 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 040E763A2392A74A00E67D54 /* CoreDataModel.xcdatamodeld */; };
 		040E763E2392A79300E67D54 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763D2392A79300E67D54 /* ModelData.swift */; };
 		040E7644239400B600E67D54 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E7643239400B600E67D54 /* CoreDataStack.swift */; };
-		040E7648239454EB00E67D54 /* DataForSwap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E7647239454EA00E67D54 /* DataForSwap.swift */; };
-		040E764C2398421900E67D54 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E764B2398421900E67D54 /* Alerts.swift */; };
-		0499A0B4239008FB0058D239 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B3239008FB0058D239 /* AppDelegate.swift */; };
 		0499A0B6239008FB0058D239 /* BarCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B5239008FB0058D239 /* BarCodeReader.swift */; };
 		0499A0BB239008FE0058D239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0499A0BA239008FE0058D239 /* Assets.xcassets */; };
 		0499A0BE239008FE0058D239 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0499A0BC239008FE0058D239 /* LaunchScreen.storyboard */; };
 		0499A0C9239008FE0058D239 /* IconNameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0C8239008FE0058D239 /* IconNameTest.swift */; };
 		0499A0D423901BC60058D239 /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D323901BC60058D239 /* Controllers.swift */; };
-		0499A0D6239020B80058D239 /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D5239020B80058D239 /* BarCodeView.swift */; };
-		0499A0D9239023A20058D239 /* BarCodeViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D8239023A20058D239 /* BarCodeViewInfo.swift */; };
 		0499A0DD239034BA0058D239 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0DC239034BA0058D239 /* API.swift */; };
 		0499A0DF23903FC40058D239 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0DE23903FC40058D239 /* ProductInfo.swift */; };
 		04C7383523A000C000186C69 /* ArrayDataForSwapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7383423A000C000186C69 /* ArrayDataForSwapTest.swift */; };
+		04C7383923A02C5A00186C69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0B3239008FB0058D239 /* AppDelegate.swift */; };
+		04C7384D23A02F5600186C69 /* DataForSwap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E7647239454EA00E67D54 /* DataForSwap.swift */; };
+		04C7384E23A02F6000186C69 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763623928C6C00E67D54 /* TableViewCell.swift */; };
+		04C7384F23A02F6300186C69 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E764B2398421900E67D54 /* Alerts.swift */; };
+		04C7385023A02F6600186C69 /* TableBarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E763823928D1700E67D54 /* TableBarCodeView.swift */; };
+		04C7385123A02F6800186C69 /* BarCodeViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D8239023A20058D239 /* BarCodeViewInfo.swift */; };
+		04C7385223A02F6A00186C69 /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A0D5239020B80058D239 /* BarCodeView.swift */; };
+		04C7385723A0EFC500186C69 /* regionNameCorrectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7385623A0EFC500186C69 /* regionNameCorrectTest.swift */; };
+		04C7385923A105A300186C69 /* TableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7385823A105A300186C69 /* TableViewControllerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		0499A0DC239034BA0058D239 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0499A0DE23903FC40058D239 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		04C7383423A000C000186C69 /* ArrayDataForSwapTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDataForSwapTest.swift; sourceTree = "<group>"; };
+		04C7385623A0EFC500186C69 /* regionNameCorrectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionNameCorrectTest.swift; sourceTree = "<group>"; };
+		04C7385823A105A300186C69 /* TableViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 			children = (
 				0499A0C8239008FE0058D239 /* IconNameTest.swift */,
 				04C7383423A000C000186C69 /* ArrayDataForSwapTest.swift */,
+				04C7385623A0EFC500186C69 /* regionNameCorrectTest.swift */,
+				04C7385823A105A300186C69 /* TableViewControllerTest.swift */,
 				0499A0CA239008FE0058D239 /* Info.plist */,
 			);
 			path = BarCodeProjectTests;
@@ -268,19 +274,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0499A0B6239008FB0058D239 /* BarCodeReader.swift in Sources */,
-				040E764C2398421900E67D54 /* Alerts.swift in Sources */,
 				040E763423915CCA00E67D54 /* ProductList.swift in Sources */,
+				04C7384D23A02F5600186C69 /* DataForSwap.swift in Sources */,
+				04C7383923A02C5A00186C69 /* AppDelegate.swift in Sources */,
 				040E763C2392A74A00E67D54 /* CoreDataModel.xcdatamodeld in Sources */,
 				0499A0D423901BC60058D239 /* Controllers.swift in Sources */,
-				040E763723928C6C00E67D54 /* TableViewCell.swift in Sources */,
+				04C7384E23A02F6000186C69 /* TableViewCell.swift in Sources */,
+				04C7385223A02F6A00186C69 /* BarCodeView.swift in Sources */,
+				04C7385023A02F6600186C69 /* TableBarCodeView.swift in Sources */,
 				040E763E2392A79300E67D54 /* ModelData.swift in Sources */,
+				04C7385123A02F6800186C69 /* BarCodeViewInfo.swift in Sources */,
 				040E7644239400B600E67D54 /* CoreDataStack.swift in Sources */,
-				0499A0B4239008FB0058D239 /* AppDelegate.swift in Sources */,
-				040E763923928D1700E67D54 /* TableBarCodeView.swift in Sources */,
-				0499A0D6239020B80058D239 /* BarCodeView.swift in Sources */,
 				0499A0DD239034BA0058D239 /* API.swift in Sources */,
-				040E7648239454EB00E67D54 /* DataForSwap.swift in Sources */,
-				0499A0D9239023A20058D239 /* BarCodeViewInfo.swift in Sources */,
+				04C7384F23A02F6300186C69 /* Alerts.swift in Sources */,
 				0499A0DF23903FC40058D239 /* ProductInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +297,8 @@
 			files = (
 				04C7383523A000C000186C69 /* ArrayDataForSwapTest.swift in Sources */,
 				0499A0C9239008FE0058D239 /* IconNameTest.swift in Sources */,
+				04C7385723A0EFC500186C69 /* regionNameCorrectTest.swift in Sources */,
+				04C7385923A105A300186C69 /* TableViewControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
